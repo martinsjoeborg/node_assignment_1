@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import "./App.css";
 
 const App = () => {
 
@@ -21,11 +22,11 @@ const App = () => {
     const html = blockchain.map((block) => {
         return (
             <div key={block.hash}>
-                <ul>
-                    <li>{block.timestamp}</li>
-                    <li>{block.data}</li>
-                    <li>{block.hash}</li>
-                    <li>{block.lastHash}</li>
+                <ul className='list'>
+                    <li>Time: {new Date(block.timestamp).toLocaleString()}</li>
+                    <li>Data: {block.data}</li>
+                    <li>Hash: {block.hash}</li>
+                    <li>Previous Hash: {block.lastHash}</li>
                 </ul>
             </div>
         );
@@ -43,11 +44,11 @@ const App = () => {
     
 
     return (
-        <div>
-            <div>
+        <div className='App'>
+            <div className='title'>
                 <h1>Blockchain Site</h1>
             </div>
-            <div>
+            <div className='form'>
                 <form onSubmit={handleAddBlock}>
                     <input type="text" name='data' />
                     <button>Add</button>
