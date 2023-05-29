@@ -6,8 +6,7 @@ const app = express();
 const blockchain = new Blockchain();
 
 app.use(express.json());
-// Detta är snik varianten
-// Som tillåter alla att kommunicera med mina endpoints...
+
 app.use(cors());
 
 app.get('/1/blocks', (req, res) => {
@@ -19,8 +18,7 @@ app.post('/1/blocks', (req, res) => {
   const block = blockchain.addBlock({ data });
 
   res.status(201).json({ message: 'Added new block', block: block });
-  // ANVÄND INTE DETTA SÄTT!!!
-  // res.redirect('/api/1/blocks');
+
 });
 
 const PORT = 5001;

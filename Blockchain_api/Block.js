@@ -21,7 +21,7 @@ class Block {
       timestamp,
       lastHash,
       data,
-      // skapa aktuellt block's hash
+      
       hash: crypto(timestamp, lastHash, data),
     });
   }
