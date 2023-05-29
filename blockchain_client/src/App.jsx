@@ -36,10 +36,10 @@ const App = () => {
         e.preventDefault();
         const data = e.target.data.value;
         const newBlock = { data };
+        // console.log(newBlock);
         const response = await axios.post(url, newBlock);
         console.log(response);
         loadBlockchain();
-
     }
     
 

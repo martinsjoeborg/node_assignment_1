@@ -1,25 +1,12 @@
 const express = require('express');
 const cors = require('cors');
-const Blockchain = require('./Blockchain');
+const blockchainRouter = require('./routes/routes');
 
 const app = express();
-const blockchain = new Blockchain();
-
 app.use(express.json());
-
 app.use(cors());
 
-app.get('/1/blocks', (req, res) => {
-  res.status(200).json(blockchain.chain);
-});
-
-app.post('/1/blocks', (req, res) => {
-  const { data } = req.body;
-  const block = blockchain.addBlock({ data });
-
-  res.status(201).json({ message: 'Added new block', block: block });
-
-});
+app.use('/1/blocks', blockchainRouter);
 
 const PORT = 5001;
 
