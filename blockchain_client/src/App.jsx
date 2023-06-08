@@ -9,8 +9,8 @@ const App = () => {
 
     const loadBlockchain = async () => {
         const { data } = await axios.get(url);
-        const lol = await axios.get(url);
-        console.log(lol);
+        // const lol = await axios.get(url);
+        // console.log(lol);
         console.log(data);
         setBlockchain(data);
     };
